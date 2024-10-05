@@ -11,7 +11,6 @@ we here use a small subset of it.
 import os
 
 import optuna
-from optuna.trial import TrialState
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -150,25 +149,3 @@ class Optimizer:
                 raise optuna.exceptions.TrialPruned()
 
         return accuracy
-
-
-# if __name__ == "__main__":
-#     study = optuna.create_study(direction="maximize")
-#     study.optimize(objective, n_trials=100, timeout=600)
-
-#     pruned_trials = study.get_trials(deepcopy=False, states=[TrialState.PRUNED])
-#     complete_trials = study.get_trials(deepcopy=False, states=[TrialState.COMPLETE])
-
-#     print("Study statistics: ")
-#     print("  Number of finished trials: ", len(study.trials))
-#     print("  Number of pruned trials: ", len(pruned_trials))
-#     print("  Number of complete trials: ", len(complete_trials))
-
-#     print("Best trial:")
-#     trial = study.best_trial
-
-#     print("  Value: ", trial.value)
-
-#     print("  Params: ")
-#     for key, value in trial.params.items():
-#         print("    {}: {}".format(key, value))
