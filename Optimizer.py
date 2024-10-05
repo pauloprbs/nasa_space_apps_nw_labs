@@ -10,7 +10,7 @@ we here use a small subset of it.
 
 import os
 
-import optuna
+import Optimizer
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -23,7 +23,7 @@ import sys
 
 class Optimizer:
     def __init__(self,in_features,BATCHSIZE,CLASSES,DIR,EPOCHS,N_TRAIN_EXAMPLES,N_VALID_EXAMPLES,predict_event):
-        DEVICE = torch.device("cpu")
+        self.DEVICE = torch.device("cpu")
         self.BATCHSIZE = BATCHSIZE
         self.CLASSES = CLASSES
         self.DIR = DIR
@@ -42,8 +42,9 @@ class Optimizer:
             return optim.SGD(model.parameters(), lr=self.lr)
 
     def get_data(self):
-        pass
-
+        #Load Spatial Data
+        folder = os.path.join(os.getcwd(),self.DIR)
+        
     def create_Linear(self,trial):
         # We optimize the number of layers, hidden units and dropout ratio in each layer.
         n_layers = trial.suggest_int("n_layers", 1, 3)
@@ -71,29 +72,23 @@ class Optimizer:
 
     def create_Conv(self,trial):
         # We optimize the number of layers, hidden units and dropout ratio in each layer.
-        n_convs = trial.suggest_int("n_convolutions", 1, 3)
+        n_convs = trial.suggest_int("n_convolutions", 2, 5)
         
         layers = []
         in_channels = self.in_features
-        out_features = trial.suggest_int("out_features", in_channels//8,in_channels//2)
         kernel_size = trial.suggest_int("kernel_size", 2, 5)
         stride = trial.suggest_int("stride", 1, 3)
         padding = trial.suggest_int("padding", 1, 3)
         predict_event = self.predict_event
         for i in range(n_convs):
-            if i == 0:
+                out_features = trial.suggest_int("out_features", 5,32)
                 layers.append(nn.Conv1d(in_channels, out_features, kernel_size=kernel_size, stride=stride, padding=padding))
                 layers.append(nn.MaxPool1d(kernel_size=kernel_size, stride=stride, padding=padding))
                 layers.append(nn.SELU())
                 p = trial.suggest_float("dropout_l{}".format(i), 0.2, 0.5)
                 layers.append(nn.Dropout(p))
-            else:
-                layers.append(nn.Conv1d(out_features//i, out_features//i+1, kernel_size=kernel_size, stride=stride, padding=padding))
-                layers.append(nn.MaxPool1d(kernel_size=kernel_size, stride=stride, padding=padding))
-                layers.append(nn.SELU())
-                p = trial.suggest_float("dropout_l{}".format(i), 0.2, 0.5)
-                layers.append(nn.Dropout(p))
-
+                in_channels = out_features
+        
         layers.append(nn.Linear(out_features//(n_convs+1), self.CLASSES))
         if predict_event:
             layers.append(nn.Softmax(dim=1))
@@ -101,7 +96,7 @@ class Optimizer:
     
     def objective(self,trial):
         # Generate the model.
-        model = self.define_model(trial).to(self.DEVICE)
+        model = self.create_Conv(trial).to(self.DEVICE)
 
         # Generate the optimizers.
         optimizer_name = trial.suggest_categorical("optimizer", ["Adam", "RMSprop", "SGD"])
@@ -146,6 +141,6 @@ class Optimizer:
 
             # Handle pruning based on the intermediate value.
             if trial.should_prune():
-                raise optuna.exceptions.TrialPruned()
+                raise Optimizer.exceptions.TrialPruned()
 
         return accuracy
