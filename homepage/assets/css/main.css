@@ -1737,6 +1737,14 @@ section,
   color:white;
 }
 
+.dark-section p{
+  color:white;
+}
+
+.dark-section label{
+  color:white;
+}
+
 .planet{
   width: 25em;
   height: 25em;

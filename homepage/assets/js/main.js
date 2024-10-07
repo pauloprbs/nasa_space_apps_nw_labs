@@ -17,6 +17,13 @@ planetobj.style.backgroundPositionX = "0%";
 var planetxoffset = 0;
 var planetxcoffset = 0;
 
+var mapsel = "earth";
+var mappath = "assets/img/planets/earth.jpeg";
+const earthbtn_f = document.getElementById("btn_earth_f");
+const moonbtn_f = document.getElementById("btn_moon_f");
+const marsbtn_f = document.getElementById("btn_mars_f");
+const mapobj = document.getElementById("planetflat");
+
 (function() {
   "use strict";
 
@@ -225,6 +232,10 @@ var planetxcoffset = 0;
   earthbtn.addEventListener("click", function(){changeRotatePlanetSel("earth", "assets/img/planets/earth.jpeg");});
   moonbtn.addEventListener("click", function(){changeRotatePlanetSel("moon", "assets/img/planets/moon.jpg");});
   marsbtn.addEventListener("click", function(){changeRotatePlanetSel("mars", "assets/img/planets/mars.jpg");});
+
+  earthbtn_f.addEventListener("click", function(){changeFlatPlanetSel("earth", "assets/img/planets/earth.jpeg");});
+  moonbtn_f.addEventListener("click", function(){changeFlatPlanetSel("moon", "assets/img/planets/moon.jpg");});
+  marsbtn_f.addEventListener("click", function(){changeFlatPlanetSel("mars", "assets/img/planets/mars.jpg");});
 })();
 
 // Planet changed
@@ -235,6 +246,12 @@ function changeRotatePlanetSel(pname, ppath){
   planetobj.style.backgroundPositionX = "0%";
 }
 
+function changeFlatPlanetSel(pname, ppath){
+  mapsel = pname;
+  mappath = ppath;
+  mapobj.src = mappath;
+}
+
 /* PLANET DRAGGING START */
 function planetDragStart(e){
   console.log("call!");
@@ -243,8 +260,10 @@ function planetDragStart(e){
   planetxcoffset = e.clientX;
   planetobj.style.cursor = "grabbing";
   document.onmouseup = planetDragEnd;
+  document.onpointerup = planetDragEnd;
   // call a function whenever the cursor moves:
   document.onmousemove = planetDrag;
+  document.onpointermove = planetDrag;
 }
 
 function planetDrag(e){
@@ -264,10 +283,21 @@ function planetDragEnd(){
   planetobj.style.cursor = "grab";
   document.onmouseup = null;
   document.onmousemove = null;
+  document.onpointerup = null;
+  document.onpointermove = null;
 }
 
 planetobj.onmousedown = planetDragStart;
+planetobj.onpointerdown = planetDragStart;
 /* PLANET DRAGGING END */
 
 /* CHATBOT START */
 /* CHATBOT END */
+
+// Easter-eggs and other removed stuff
+function giveMeMercury(){
+  changeRotatePlanetSel("merkury", "assets/img/planets/merkury.jpg");
+}
+function giveMeVenus(){
+  changeRotatePlanetSel("venus", "assets/img/planets/Venus.jpg")
+}

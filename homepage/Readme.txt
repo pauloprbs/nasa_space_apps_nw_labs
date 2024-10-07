@@ -6,7 +6,6 @@ Author: BootstrapMade.com
 License: https://bootstrapmade.com/license/
 
 TODO:
-    Mapa plano
     Heatmap+Slider
     Página explicativa
     Chatbot pop-up canto direito

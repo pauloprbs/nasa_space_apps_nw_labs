@@ -34,6 +34,24 @@
 
 <body class="index-page">
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Seismic Activity Graph Example</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <image src="https://doc.arcgis.com/pt-br/insights/latest/create/GUID-0E216C87-8289-4C24-93C0-434F3A29FD6C-web.png" alt="Graph example"></image>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -45,9 +63,10 @@
 
       <nav id="navmenu" class="navmenu">  
         <ul>
-          <li><a href="#whoweare">Who we are<br></a></li>
           <li><a href="#simulation">Simulation</a></li>
-          <li><a href="#">Seismic AI</a></li>
+          <li><a href="#whoweare">Who we are<br></a></li>
+          <li><a href="#explanation">How it works</a></li>
+          <li><a href="#">Powered By Seismic AI</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -67,7 +86,7 @@
         <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
           <div class="col-xl-8 col-lg-8">
             <h2>the shaking galaxy <br>is inside you</h2><br>
-            <button type="button" class="btn btn-primary btn-lg">View all data</button>
+            <a type="button" class="btn btn-primary btn-lg" href="#alldata">View all data</a>
           </div>
         </div>
 
@@ -75,136 +94,40 @@
 
     </section><!-- /Hero Section -->
 
-    <section id="whoweare" class="team section">
-
-      <!-- Section Title -->
+    <section id="alldata" class="section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>our Team</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Bianca</h4>
-                <span>Chief Executive Officer</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Paulo</h4>
-                <span>Product Manager</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Henric</h4>
-                <span>CTO</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Mateus</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <!--faketeammember--><div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400"></div>
-
-          <!-- New Team member start -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Allann</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div>
-          <!-- New Team member end -->
-
-          <!-- New Team member start -->
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Danilo</h4>
-                <span>Accountant</span>
-              </div>
-            </div>
-          </div>
-          <!-- New Team member end -->
-        </div>
-
+        <h2>Important data</h2>
+        <p>About current seismic events</p>
       </div>
 
-    </section><!-- /Team Section -->
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-4">
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Planet
+              </button>
+              <ul class="dropdown-menu">
+                <!--<li><button class="dropdown-item" type="button" id="btn_merkury">Mercury</button></li>
+                <li><button class="dropdown-item" type="button" id="btn_venus">Venus</button></li>-->
+                <li><button class="dropdown-item" type="button" id="btn_earth_f">Earth</button></li>
+                <li><button class="dropdown-item" type="button" id="btn_moon_f">Moon</button></li>
+                <li><button class="dropdown-item" type="button" id="btn_mars_f">Mars</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <h3>Click the interest points</h3>
+          </div>
+          <div class="col-4"></div>
+        </div>
+        <div class="row">
+          <image src="assets/img/planets/earth.jpeg" class="img-fluid" alt="flatmap" id="planetflat" style="border-radius:10%;" data-bs-toggle="modal" data-bs-target="#exampleModal"></image>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </section>
 
     <section id="simulation" class="dark-section">
       <div class="container section-title" data-aos="fade-up">
@@ -229,13 +152,185 @@
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="row justify-content-center">
-            <div class="planet" id="planetrotate"></div>
+        <div class="row">
+          <div class="col">
+            <div class="row justify-content-center">
+              <div class="planet" id="planetrotate"></div>
+            </div>
           </div>
+          <!--<div class="col-8">
+            <label for="timelinerange" class="form-label">Timeline</label>
+            <input type="range" class="form-range" min="1" max="100", value="50", id="timelinerange">
+          </div>-->
         </div>
       </div>
     </section> <!-- Simulation Section End-->
+
+    <section id="whoweare" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>our Team</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0013.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Bianca</h4>
+                <span>Management & Marketing</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0011.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Paulo</h4>
+                <span>Data Scientist</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0010.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Henric</h4>
+                <span>AI Development</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0012.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Mateus</h4>
+                <span>Database Manager</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <!--faketeammember--><div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400"></div>
+
+          <!-- New Team member start -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0008.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Allann</h4>
+                <span>Python Back-End</span>
+              </div>
+            </div>
+          </div>
+          <!-- New Team member end -->
+
+          <!-- New Team member start -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/clients/IMG-20241006-WA0009.webp" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Danilo</h4>
+                <span>Web Dev</span>
+              </div>
+            </div>
+          </div>
+          <!-- New Team member end -->
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <section id="explanation" class="section dark-section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>How it works</h2>
+        <p>Learn why</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <p>
+          This program was born with a goal: to connect you to live information about past and future disasters, so you can keep what matters most to you safe and sound.
+        </p>
+        <p>
+          We gather data on seismic activites that is made public by NASA, correctly identify and remove the noise, keeping only the useful data, and use this to feed a neural network specialized in predicting future large-scale seismic events.
+        </p>
+        <p>
+          With this, we can create the prediction models you saw above, and successfully prevent the massive loss of life and resources that generally comes with such tragedies, even on other planets, when space travel comes to be.
+        </p>
+        <p>
+          As an added bonus, the noise suppresion, which is implemented in the seismic sensors themselves, stops the equipment to transmit useless data back to Earth, saving on power and extending their mission duration.
+        </p>
+        <br><br>
+        <p>
+          We believe that life only came to be with movement.
+        </p>
+        <p>
+          One day, something moved in the universe. That thing kept moving, so here we are, moving our lungs to breathe, and that's why we are alive.
+        </p>
+        <p>
+          But the point is, the living organism we inhabit moves with us, and the seismic detection proves that it keeps changing.
+        </p>
+      </div>
+    </section>
 
   </main>
 
